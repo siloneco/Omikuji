@@ -47,6 +47,10 @@ public class SignListener implements Listener {
         Player p = e.getPlayer();
         Block b = e.getClickedBlock();
 
+        if (!plugin.getPluginConfig().isAllowSign()) {
+            return;
+        }
+
         if (e.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
         }
