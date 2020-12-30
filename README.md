@@ -15,7 +15,7 @@
 
 ## 設定方法
 1. Pluginを導入し、サーバーを再起動 (Plugmanを導入している場合は /plugman load Omikujiでも可)
-2. 生成された config.yml を好みの設定に変更
+2. 生成された config.yml を好みの設定に変更し、/omikuji reload を実行
 3. 当たった時に貰えるアイテムを設定したい場合は、サーバーに入り /omikuji setItem \<ID> を使用して設定
 4. 看板を使用する場合は看板を設置 (看板の設置方法は下に記載)
 5. 必要ならば動作確認
