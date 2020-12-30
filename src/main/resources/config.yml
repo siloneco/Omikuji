@@ -1,0 +1,100 @@
+# Omikuji Plugin
+# Author: siloneco
+
+# チャットの先頭に表示されるメッセージです
+Prefix: "&e[&cおみくじ&e]"
+
+# おみくじを引くのにかかるコストを指定します
+# Vault経由でプレイヤーの所持金から引き出されます
+# 無効にする場合は 0 や -1 などを指定してください
+Cost: -1
+
+# プレイヤーごとのおみくじを引ける回数を指定します
+# !!注意!!: 0にするとこの設定は有効になり、1回も引けない状態になります
+# 無効にする場合は -1 を指定してください
+MaximumAmountPerPlayer: -1
+
+# おみくじを引いてから結果がでるまでのTick数を指定します
+# 1秒 = 20Tick です
+DrawTicks: 60
+
+# おみくじを引く方法を設定します
+# Command: trueにした場合、/omikuji コマンドでおみくじを引くことができます
+# Sign: trueにした場合、看板でおみくじを引くことができます
+Methods:
+  Command: true
+  Sign: true
+
+# 看板でおみくじを引ける状態にする場合の設定をします
+# Prefix: 看板の先頭に書かれるメッセージです。 !!注意!!: この設定を変更した場合、すでに設定してある看板は再設置しなければなりません！
+# IntervalMilliseconds: 看板の連打防止用設定です。最後にクリックしてからこの秒数の間は連打できなくなります。ミリ秒で指定してください
+# 1秒 = 1000ミリ秒
+Sign:
+  Prefix: "&e[&4おみくじ&e]"
+  IntervalMilliseconds: 1000
+
+# チャット関連のメッセージを設定します
+#
+# JoinMessage: おみくじが引ける期間にログインしたときに表示するメッセージです
+# ResultTitle: おみくじの結果が出たときに画面中央に表示するメッセージです
+# ResultChat: おみくじの結果が出たときにチャット欄に表示するメッセージです
+#
+# いずれも無効にしたい場合は null を指定してください
+Chats:
+  JoinMessage: "&c明けましておめでとうございます！ &e/omikuji &cでおみくじが引けます！"
+  ResultTitle: "%RESULT%"
+  ResultChat: "&7あなたは %RESULT%&r &7を引きました！！"
+
+# 指定した時刻におみくじを引けるようにする設定です
+# Enable: true にした場合、Date の時刻にならないと引けません。false にした場合はいつでも引けます
+# Date: おみくじを解禁する日時を指定します。形式は "yyyy-MM-dd HH:mm:ss" です。
+# 例: "2021-01-01 00:00:00"
+AutoEnable:
+  Enable: true
+  Date: "2021-01-01 00:00:00"
+
+# 指定した時刻におみくじを引けないようにする設定です
+# Enable: true にした場合、Date の時刻になると引けなくなります。false にした場合はいつでも引けます
+# Date: おみくじを引けなくする日時を指定します。形式は "yyyy-MM-dd HH:mm:ss" です。
+# 例: "2021-02-01 00:00:00"
+AutoDisable:
+  Enable: true
+  Date: "2021-02-01 00:00:00"
+
+# おみくじの結果を指定します
+# アイテムはゲーム内から /omikuji setItem <ID> で指定してください
+# !!注意!!: Percentage は合計でピッタリ100になる必要があります！
+#
+# 形式は
+# Results:
+#   <ID>:
+#     DisplayTitle: "表示名"
+#     Percentage: 確率(%)
+#
+# 例
+# Results:
+#   DaiKichi:
+#     DisplayTitle: "&c&l&n大吉"
+#     Percentage: 33
+#   ChuKichi:
+#     DisplayTitle: "&a中吉"
+#     Percentage: 34
+#   ShoKichi:
+#     DisplayTitle: "&c小吉"
+#     Percentage: 33
+Results:
+  DaiKichi:
+    DisplayTitle: "&c&l&n大吉"
+    Percentage: 20
+  ChuKichi:
+    DisplayTitle: "&a中吉"
+    Percentage: 25
+  ShoKichi:
+    DisplayTitle: "&c小吉"
+    Percentage: 30
+  SueKichi:
+    DisplayTitle: "&b末吉"
+    Percentage: 15
+  Kyo:
+    DisplayTitle: "&4&l凶"
+    Percentage: 10

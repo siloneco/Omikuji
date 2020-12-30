@@ -1,0 +1,23 @@
+name: ${project.name}
+main: com.github.siloneco.omikuji.Omikuji
+version: ${project.version}
+author: siloneco
+description: ${project.description}
+softdepend: [ "Vault" ]
+api-version: 1.16
+commands:
+  omikuji:
+    aliases: [ "omikuzi" ]
+permissions:
+  omikuji.allowdraw:
+    default: true
+  omikuji.command.omikuji:
+    default: true
+  omikuji.admin:
+    default: op
+  omikuji.bypass.drawtimelimit:
+    default: op
+  omikuji.bypass.cost:
+    default: op
+  omikuji.bypass.amount:
+    default: op
