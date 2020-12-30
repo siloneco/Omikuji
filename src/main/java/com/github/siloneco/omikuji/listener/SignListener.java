@@ -60,6 +60,11 @@ public class SignListener implements Listener {
             return;
         }
 
+        if (!p.hasPermission("omikuji.allowdraw")) {
+            p.sendMessage(Chat.f("{0} &c権限がありません！", plugin.getPluginConfig().getPrefix()));
+            return;
+        }
+
         if (lastExecuted.getOrDefault(p.getUniqueId(), 0L) + plugin.getPluginConfig().getSignIntervalMilliseconds()
                 > System.currentTimeMillis()) {
             return;
