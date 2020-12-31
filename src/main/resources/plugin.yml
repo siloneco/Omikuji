@@ -4,7 +4,7 @@ version: ${project.version}
 author: siloneco
 description: ${project.description}
 softdepend: [ "Vault" ]
-api-version: 1.16
+api-version: 1.13
 commands:
   omikuji:
     aliases: [ "omikuzi" ]
