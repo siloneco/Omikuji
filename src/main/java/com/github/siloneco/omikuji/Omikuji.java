@@ -4,6 +4,7 @@ import com.github.siloneco.omikuji.command.OmikujiCommand;
 import com.github.siloneco.omikuji.listener.*;
 import com.github.siloneco.omikuji.utility.Chat;
 import com.github.siloneco.omikuji.utility.VersionUtils;
+import java.security.NoSuchAlgorithmException;
 import lombok.Getter;
 import me.rayzr522.jsonmessage.JSONMessage;
 import net.milkbowl.vault.economy.Economy;
@@ -149,7 +150,14 @@ public class Omikuji extends JavaPlugin {
                 }
                 return;
             }
-            OmikujiResult result = pluginConfig.getResultContainer().execute();
+            OmikujiResult result;
+            try {
+                result = pluginConfig.getResultContainer().execute();
+            } catch (NoSuchAlgorithmException e) {
+                getLogger().warning("SecureRandomでの乱数生成に失敗しました。Plugin開発者に連絡してください。");
+                p.sendMessage(Chat.f("{0} &cおみくじの結果を取得できませんでした。管理者に連絡してください。", pluginConfig.getPrefix()));
+                return;
+            }
 
             JSONMessage.create(getPluginConfig().getResultTitle().replace("%RESULT%", result.getDisplayTitle()).replace("%PREFIX%", pluginConfig.getPrefix()))
                     .title(0, 100, 20, p);

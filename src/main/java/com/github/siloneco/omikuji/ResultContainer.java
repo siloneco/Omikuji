@@ -1,5 +1,7 @@
 package com.github.siloneco.omikuji;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
@@ -12,10 +14,13 @@ public class ResultContainer {
 
     @Getter
     private final HashMap<Double, OmikujiResult> results;
-    private final Random rand = new Random();
+    private SecureRandom random;
 
-    public OmikujiResult execute() {
-        double resultNum = rand.nextDouble() * 100;
+    public OmikujiResult execute() throws NoSuchAlgorithmException {
+        if (random == null) {
+            random = SecureRandom.getInstance("SHA1PRNG");
+        }
+        double resultNum = random.nextDouble() * 100;
 
         double key = results.keySet().stream()
                 .filter(num -> num <= resultNum)
