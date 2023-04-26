@@ -1,5 +1,6 @@
 package com.github.siloneco.omikuji.utility;
 
+import java.lang.reflect.InvocationTargetException;
 import me.rayzr522.jsonmessage.JSONMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -8,8 +9,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryView;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class VersionUtils {
 

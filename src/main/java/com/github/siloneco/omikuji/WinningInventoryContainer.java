@@ -1,14 +1,13 @@
 package com.github.siloneco.omikuji;
 
 import com.github.siloneco.omikuji.utility.Chat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import org.apache.commons.lang.RandomStringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class WinningInventoryContainer {
 

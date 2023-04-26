@@ -1,10 +1,9 @@
 package com.github.siloneco.omikuji.utility;
 
-import lombok.experimental.UtilityClass;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.experimental.UtilityClass;
 
 /**
  * Cited: https://github.com/AzisabaNetwork/LeonGunWar/blob/master/src/main/java/net/azisaba/lgw/core/utils/Args.java

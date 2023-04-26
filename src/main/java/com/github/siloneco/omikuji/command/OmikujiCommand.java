@@ -5,6 +5,9 @@ import com.github.siloneco.omikuji.OmikujiResult;
 import com.github.siloneco.omikuji.utility.Args;
 import com.github.siloneco.omikuji.utility.Chat;
 import com.github.siloneco.omikuji.utility.MessageBridge;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -13,10 +16,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class OmikujiCommand implements CommandExecutor {

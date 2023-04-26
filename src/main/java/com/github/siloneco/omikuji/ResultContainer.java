@@ -2,12 +2,10 @@ package com.github.siloneco.omikuji;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.HashMap;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
-
-import java.util.HashMap;
-import java.util.Random;
 
 @RequiredArgsConstructor
 public class ResultContainer {

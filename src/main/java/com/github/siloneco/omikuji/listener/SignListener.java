@@ -3,6 +3,8 @@ package com.github.siloneco.omikuji.listener;
 import com.github.siloneco.omikuji.Omikuji;
 import com.github.siloneco.omikuji.utility.Chat;
 import com.github.siloneco.omikuji.utility.VersionUtils;
+import java.util.HashMap;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;
@@ -13,9 +15,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-
-import java.util.HashMap;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 public class SignListener implements Listener {

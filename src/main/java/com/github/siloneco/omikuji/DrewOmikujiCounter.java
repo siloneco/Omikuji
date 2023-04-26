@@ -1,14 +1,13 @@
 package com.github.siloneco.omikuji;
 
-import lombok.RequiredArgsConstructor;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
+import lombok.RequiredArgsConstructor;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 @RequiredArgsConstructor
 public class DrewOmikujiCounter {

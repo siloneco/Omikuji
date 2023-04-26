@@ -1,9 +1,8 @@
 package com.github.siloneco.omikuji.utility;
 
+import java.text.MessageFormat;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
-
-import java.text.MessageFormat;
 
 /**
  * Cited: https://github.com/AzisabaNetwork/LeonGunWar/blob/master/src/main/java/net/azisaba/lgw/core/utils/Chat.java
