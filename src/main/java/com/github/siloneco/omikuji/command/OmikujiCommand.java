@@ -4,8 +4,8 @@ import com.github.siloneco.omikuji.Omikuji;
 import com.github.siloneco.omikuji.OmikujiResult;
 import com.github.siloneco.omikuji.utility.Args;
 import com.github.siloneco.omikuji.utility.Chat;
+import com.github.siloneco.omikuji.utility.MessageBridge;
 import lombok.RequiredArgsConstructor;
-import me.rayzr522.jsonmessage.JSONMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -83,7 +83,7 @@ public class OmikujiCommand implements CommandExecutor {
                     .stream().sorted((Comparator.comparingInt(OmikujiResult::getPriority))).collect(Collectors.toList());
 
             if (sender instanceof Player) {
-                JSONMessage msg = JSONMessage.create().bar().newline();
+                MessageBridge msg = MessageBridge.create().bar().newline();
                 for (OmikujiResult result : results) {
                     msg.then(Chat.f("{0}&7({1}) &a{2}% &7- ", result.getDisplayTitle(), result.getId(), result.getPercentage()));
                     if (!result.getItems().isEmpty()) {
@@ -120,7 +120,7 @@ public class OmikujiCommand implements CommandExecutor {
             }
 
             if (result.getItems().isEmpty()) {
-                JSONMessage.create(Chat.f("{0} &r{1} &aのアイテムは登録されていません！ ", plugin.getPluginConfig().getPrefix(), result.getDisplayTitle()))
+                MessageBridge.create().then(Chat.f("{0} &r{1} &aのアイテムは登録されていません！ ", plugin.getPluginConfig().getPrefix(), result.getDisplayTitle()))
                         .then(Chat.f("&b[クリックで設定]")).suggestCommand(Chat.f("/{0} setItem {1}", label, result.getId()))
                         .send((Player) sender);
                 return true;
@@ -170,7 +170,7 @@ public class OmikujiCommand implements CommandExecutor {
     }
 
     private void sendPlayerHelpMessage(Player p, String label) {
-        JSONMessage.create()
+        MessageBridge.create()
                 .bar().newline()
                 .then(Chat.f("&a/{0} help &7- &bこのメッセージを表示", label)).newline()
                 .then(Chat.f("&a/{0} reload &7- &bConfigをリロード", label)).newline()

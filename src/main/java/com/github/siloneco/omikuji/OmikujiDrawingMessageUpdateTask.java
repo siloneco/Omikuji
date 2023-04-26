@@ -1,9 +1,9 @@
 package com.github.siloneco.omikuji;
 
 import com.github.siloneco.omikuji.utility.Chat;
+import com.github.siloneco.omikuji.utility.VersionUtils;
 import com.google.common.base.Strings;
 import lombok.RequiredArgsConstructor;
-import me.rayzr522.jsonmessage.JSONMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -21,11 +21,9 @@ public class OmikujiDrawingMessageUpdateTask extends BukkitRunnable {
             return;
         }
 
-        JSONMessage.create(Chat.f("&aおみくじを引いています{0}", Strings.repeat(".", numberOfDots)))
-                .title(0, 20, 10, plugin.getExecutingPlayers().stream()
-                        .map(Bukkit::getPlayer)
-                        .filter(p -> p != null && p.isOnline())
-                        .toArray(Player[]::new));
+        plugin.getExecutingPlayers().stream()
+            .map(Bukkit::getPlayer)
+            .filter(p -> p != null && p.isOnline()).forEach(this::display);
 
         numberOfDots++;
         if (numberOfDots > 3) {
@@ -34,6 +32,6 @@ public class OmikujiDrawingMessageUpdateTask extends BukkitRunnable {
     }
 
     public void display(Player p) {
-        JSONMessage.create(Chat.f("&aおみくじを引いています{0}", Strings.repeat(".", numberOfDots))).title(0, 20, 10, p);
+        VersionUtils.sendTitle(Chat.f("&aおみくじを引いています{0}", Strings.repeat(".", numberOfDots)), 0, 20, 10, p);
     }
 }

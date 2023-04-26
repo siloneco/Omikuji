@@ -3,10 +3,10 @@ package com.github.siloneco.omikuji;
 import com.github.siloneco.omikuji.command.OmikujiCommand;
 import com.github.siloneco.omikuji.listener.*;
 import com.github.siloneco.omikuji.utility.Chat;
+import com.github.siloneco.omikuji.utility.MessageBridge;
 import com.github.siloneco.omikuji.utility.VersionUtils;
 import java.security.NoSuchAlgorithmException;
 import lombok.Getter;
-import me.rayzr522.jsonmessage.JSONMessage;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.Bukkit;
@@ -159,8 +159,8 @@ public class Omikuji extends JavaPlugin {
                 return;
             }
 
-            JSONMessage.create(getPluginConfig().getResultTitle().replace("%RESULT%", result.getDisplayTitle()).replace("%PREFIX%", pluginConfig.getPrefix()))
-                    .title(0, 100, 20, p);
+            VersionUtils.sendTitle(getPluginConfig().getResultTitle().replace("%RESULT%", result.getDisplayTitle()).replace("%PREFIX%", pluginConfig.getPrefix()), 0, 100, 20, p);
+
             p.sendMessage(getPluginConfig().getResultChat().replace("%RESULT%", result.getDisplayTitle()).replace("%PREFIX%", pluginConfig.getPrefix()));
 
             VersionUtils.playLevelUpSound(p);
@@ -170,7 +170,7 @@ public class Omikuji extends JavaPlugin {
             }
 
             String secretID = winningInventoryContainer.createInventoryWithID(result).getSecretID();
-            JSONMessage.create("")
+            MessageBridge.create()
                     .bar().newline()
                     .then(Chat.f("{0} ", pluginConfig.getPrefix()))
                     .then(Chat.f("&e&nここをクリック")).runCommand("/omikuji openWinningInventory " + secretID)
